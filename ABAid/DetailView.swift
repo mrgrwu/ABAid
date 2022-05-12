@@ -77,7 +77,7 @@ struct DetailView: View {
                 Section {
                     Text("Function").fontWeight(.semibold) + Text(": ") + Text("\(functions[aBCDataCopy.events[eventIndex].functionSelection]): \(functionDescriptions[aBCDataCopy.events[eventIndex].functionSelection])")
                     Picker("", selection: $functionSelection) {
-                        ForEach(0 ..< functions.count) {
+                        ForEach(0 ..< functions.count, id:\.self) {
                             Text("\(self.functions[$0])").fontWeight(.semibold) + Text(": \(self.functionDescriptions[$0])")
                         }
                     }

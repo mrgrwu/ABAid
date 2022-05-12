@@ -45,7 +45,7 @@ struct DataEntryView: View {
                 Section(header: Text("What was the primary function? What do you think the individual was looking for?")) {
                     Text("Choose a ") + Text("function").fontWeight(.semibold) + Text(" for the behavior:")
                     Picker("", selection: $functionSelection) {
-                        ForEach(0 ..< functions.count) {
+                        ForEach(0 ..< functions.count, id:\.self) {
                             Text("\(self.functions[$0])").fontWeight(.semibold) + Text(": \(self.functionDescriptions[$0])")
                         }
                     }
