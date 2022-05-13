@@ -22,6 +22,9 @@ struct DataEntryView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section {
+                    Text("Is this event very similar to something that happened before? Go to List, view the event, and select Duplicate.")
+                }
                 Section(header: Text("What happened? Who did what, or to whom?")) {
                     Text("Describe the ") + Text("behavior").fontWeight(.semibold) + Text(":")
                     TextField("Behavior", text: $behavior, prompt: Text("Describe the behavior"))

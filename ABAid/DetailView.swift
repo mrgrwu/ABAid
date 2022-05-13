@@ -18,6 +18,7 @@ struct DetailView: View {
     @State private var behavior: String = ""
     @State private var consequence: String = ""
     @State private var functionSelection: Int = 0
+    @State private var showDuplicateEventAlert = false
 
     let functions = ["Access", "Avoidance", "Attention", "Sensory", "Combination"]
     let functionDescriptions = ["I want something that may not be available, or need help.", "I don’t want to do something asked of me, or that I’m supposed to be doing.", "I want someone to pay attention to me.", "I need to meet my sensory needs or cravings.", "I have a mix of needs."]
@@ -25,6 +26,15 @@ struct DetailView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section {
+                    HStack {
+                        Spacer()
+                        Button("Duplicate this Event") {
+                            duplicateEvent()
+                        }
+                        Spacer()
+                    }
+                }
                 Section {
                     Text("Behavior").fontWeight(.semibold) + Text(": ") + Text("\(aBCDataCopy.events[eventIndex].behavior)")
                     TextField("Behavior", text: $behavior, prompt: Text("Enter new description"))
@@ -119,7 +129,18 @@ struct DetailView: View {
                         }
                     }
                 }
+                .alert("Event has been duplicated", isPresented: $showDuplicateEventAlert) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text("Find the event in List and edit date, time, or other needed details.")
+                }
         }
+    }
+    
+    func duplicateEvent() {
+        let event = Event(when: aBCDataCopy.events[eventIndex].when, antecedent: aBCDataCopy.events[eventIndex].antecedent, behavior: aBCDataCopy.events[eventIndex].behavior, consequence: aBCDataCopy.events[eventIndex].consequence, functionSelection: aBCDataCopy.events[eventIndex].functionSelection)
+        aBCDataCopy.events.append(event)
+        showDuplicateEventAlert = true
     }
 }
 
