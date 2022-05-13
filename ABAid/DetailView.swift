@@ -30,6 +30,13 @@ struct DetailView: View {
                     TextField("Behavior", text: $behavior, prompt: Text("Enter new description"))
                     HStack {
                         Spacer()
+                        Button("Copy Current Description") {
+                            behavior = self.aBCDataCopy.events[eventIndex].behavior
+                        }
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
                         Button("Update") {
                             self.aBCDataCopy.events[eventIndex].behavior = behavior
                         }
@@ -55,6 +62,13 @@ struct DetailView: View {
                     TextField("Antecedent", text: $antecedent, prompt: Text("Enter new description"))
                     HStack {
                         Spacer()
+                        Button("Copy Current Description") {
+                            antecedent = self.aBCDataCopy.events[eventIndex].antecedent
+                        }
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
                         Button("Update") {
                             self.aBCDataCopy.events[eventIndex].antecedent = antecedent
                         }
@@ -65,6 +79,13 @@ struct DetailView: View {
                 Section {
                     Text("Consequence").fontWeight(.semibold) + Text(": ") + Text("\(aBCDataCopy.events[eventIndex].consequence)")
                     TextField("Consequence", text: $consequence, prompt: Text("Enter new description"))
+                    HStack {
+                        Spacer()
+                        Button("Copy Current Description") {
+                            consequence = self.aBCDataCopy.events[eventIndex].consequence
+                        }
+                        Spacer()
+                    }
                     HStack {
                         Spacer()
                         Button("Update") {
