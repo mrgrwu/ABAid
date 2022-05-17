@@ -25,6 +25,7 @@ struct CommunicateView: View {
                 }
             }
                 .font(.title3)
+                .foregroundColor(.black)
                 .padding()
         }
     }

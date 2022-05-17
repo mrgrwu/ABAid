@@ -25,6 +25,7 @@ struct FacilitateView: View {
                 }
             }
                 .font(.title3)
+                .foregroundColor(.black)
                 .padding()
         }
     }

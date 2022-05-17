@@ -16,19 +16,33 @@ struct HomeView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.teal, .white]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             VStack(spacing: 30) {
+                Spacer()
                 Text("ABAid")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .foregroundColor(.black)
                 Text("Welcome to ABAid. To get started, let's collect some ABC data using the Enter Data tab. You've got this!")
                     .font(.title3)
-                Button(action: exportData) {
-                    Text("Export Data")
+                    .foregroundColor(.black)
+                HStack {
+                    Button(action: exportData) {
+                        Text("Export Data")
+                    }
+                        .font(.title3)
+                        .padding()
+                    Spacer()
+                    Button("Erase Data") {
+                        showEraseAlert = true
+                    }
+                        .font(.title3)
+                        .padding()
                 }
-                    .font(.title3)
-                Button("Erase Data") {
-                    showEraseAlert = true
+                Spacer()
+                Link(destination: URL(string: "https://bortle4tech.wordpress.com/privacy-policy/")!) {
+                    Text("App Support and Privacy Policy")
+                        .underline()
+                        .font(.footnote)
                 }
-                    .font(.title3)
             }
                 .padding()
                 .alert("Data has been saved to Files", isPresented: $showExportAlert) {

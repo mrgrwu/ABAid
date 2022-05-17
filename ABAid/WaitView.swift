@@ -27,6 +27,7 @@ struct WaitView: View {
                 }
             }
                 .font(.title3)
+                .foregroundColor(.black)
                 .padding()
         }
     }
