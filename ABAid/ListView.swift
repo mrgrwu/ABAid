@@ -45,6 +45,7 @@ struct ListView: View {
                     DetailView(aBCDataCopy: aBCDataCopy, eventIndex: eventIndex)
                 }
         }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

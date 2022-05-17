@@ -75,6 +75,7 @@ struct SummaryView: View {
             }
                 .navigationTitle("A summary so far")
         }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

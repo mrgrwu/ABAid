@@ -13,33 +13,36 @@ struct HomeView: View {
     @State private var showEraseAlert = false
     
     var body: some View {
-        VStack(spacing: 30) {
-            Text("ABAid")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            Text("Welcome to ABAid. To get started, let's collect some ABC data using the Enter Data tab. You've got this!")
-                .font(.title3)
-            Button(action: exportData) {
-                Text("Export Data")
-            }
-                .font(.title3)
-            Button("Erase Data") {
-                showEraseAlert = true
-            }
-                .font(.title3)
-        }
-            .padding()
-            .alert("Data has been saved to Files", isPresented: $showExportAlert) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text("You can find a file named abcdata.csv in the ABAid folder in your Files app and share it with your provider.")
-            }
-            .alert("Erase all data?", isPresented: $showEraseAlert) {
-                Button("Erase", role: .destructive) {
-                    aBCDataCopy.events = []
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.teal, .white]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            VStack(spacing: 30) {
+                Text("ABAid")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Text("Welcome to ABAid. To get started, let's collect some ABC data using the Enter Data tab. You've got this!")
+                    .font(.title3)
+                Button(action: exportData) {
+                    Text("Export Data")
                 }
-                Button("Cancel", role: .cancel) {}
+                    .font(.title3)
+                Button("Erase Data") {
+                    showEraseAlert = true
+                }
+                    .font(.title3)
             }
+                .padding()
+                .alert("Data has been saved to Files", isPresented: $showExportAlert) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text("You can find a file named abcdata.csv in the ABAid folder in your Files app and share it with your provider.")
+                }
+                .alert("Erase all data?", isPresented: $showEraseAlert) {
+                    Button("Erase", role: .destructive) {
+                        aBCDataCopy.events = []
+                    }
+                    Button("Cancel", role: .cancel) {}
+                }
+        }
     }
     
     func exportData() {

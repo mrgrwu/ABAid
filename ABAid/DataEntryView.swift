@@ -71,6 +71,7 @@ struct DataEntryView: View {
                     }
                 }
         }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func submitData() {
@@ -91,5 +92,6 @@ struct DataEntryView: View {
 struct DataEntryView_Previews: PreviewProvider {
     static var previews: some View {
         DataEntryView(aBCDataCopy: BehaviorData())
+            .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
