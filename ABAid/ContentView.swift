@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var aBCData = BehaviorData()
+    @StateObject var trackingData = TrackingData()
     
     var body: some View {
         TabView {
-            HomeView(aBCDataCopy: aBCData)
+            HomeView(aBCDataCopy: aBCData, trackingDataCopy: trackingData)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
@@ -27,7 +28,7 @@ struct ContentView: View {
                     Image(systemName: "list.dash")
                     Text("List")
                 }
-            SummaryView(aBCDataCopy: aBCData)
+            SummaryView(aBCDataCopy: aBCData, trackingDataCopy: trackingData)
                 .tabItem {
                     Image(systemName: "chart.bar.doc.horizontal")
                     Text("Summary")

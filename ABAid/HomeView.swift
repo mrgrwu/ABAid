@@ -9,19 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var aBCDataCopy: BehaviorData
+    @ObservedObject var trackingDataCopy: TrackingData
     @State private var showExportAlert = false
     @State private var showEraseAlert = false
     
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.teal, .white]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
-            VStack(spacing: 30) {
+            VStack(spacing: 25) {
                 Spacer()
                 Text("ABAid")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                Text("Welcome to ABAid. To get started, let's collect some ABC data using the Enter Data tab. You've got this!")
+                Text("Need some aid in your ABA? Get started by collecting ABC data using the Enter Data tab. Need a simple tracker? Find one in the Summary tab. You've got this!")
                     .font(.title3)
                     .foregroundColor(.black)
                 HStack {
@@ -53,6 +54,7 @@ struct HomeView: View {
                 .alert("Erase all data?", isPresented: $showEraseAlert) {
                     Button("Erase", role: .destructive) {
                         aBCDataCopy.events = []
+                        trackingDataCopy.actions = []
                     }
                     Button("Cancel", role: .cancel) {}
                 }
@@ -60,8 +62,8 @@ struct HomeView: View {
     }
     
     func exportData() {
-        var exportString = "Date,Antecedent,Behavior,Consequence,Function\n"
-        let functions = ["Access", "Avoidance", "Attention", "Sensory", "Combination"]
+        var exportString = "Date and Time,Antecedent,Behavior,Consequence,Function\n"
+        let functions = ["Unsure", "Access", "Avoidance", "Attention", "Sensory", "Combination"]
         
         for eventIndex in 0 ..< aBCDataCopy.events.count {
             exportString.append("\"" + aBCDataCopy.events[eventIndex].when.formatted(date: .abbreviated, time: .shortened) + "\",")
@@ -69,6 +71,11 @@ struct HomeView: View {
             exportString.append(aBCDataCopy.events[eventIndex].behavior + ",")
             exportString.append(aBCDataCopy.events[eventIndex].consequence + ",")
             exportString.append(functions[aBCDataCopy.events[eventIndex].functionSelection] + "\n")
+        }
+        exportString.append("Action,Count\n")
+        for actionIndex in 0 ..< trackingDataCopy.actions.count {
+            exportString.append(trackingDataCopy.actions[actionIndex].description + ",")
+            exportString.append(String(trackingDataCopy.actions[actionIndex].count) + "\n")
         }
         
         let url = getDocumentsDirectory().appendingPathComponent("abcdata.csv")
@@ -88,6 +95,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(aBCDataCopy: BehaviorData())
+        HomeView(aBCDataCopy: BehaviorData(), trackingDataCopy: TrackingData())
     }
 }

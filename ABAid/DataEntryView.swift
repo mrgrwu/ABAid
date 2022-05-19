@@ -16,14 +16,15 @@ struct DataEntryView: View {
     @State private var consequence: String = ""
     @State private var functionSelection: Int = 0
         
-    let functions = ["Access", "Avoidance", "Attention", "Sensory", "Combination"]
-    let functionDescriptions = ["I want something that may not be available, or need help.", "I don’t want to do something asked of me, or that I’m supposed to be doing.", "I want someone to pay attention to me.", "I need to meet my sensory needs or cravings.", "I have a mix of needs."]
+    let functions = ["Unsure", "Access", "Avoidance", "Attention", "Sensory", "Combination"]
+    let functionDescriptions = ["Don't know yet.", "\"I want something that may not be available, or need help.\"", "\"I don’t want to do something asked of me, or that I’m supposed to be doing.\"", "\"I want someone to pay attention to me.\"", "\"I need to meet my sensory needs or cravings.\"", "\"I have a mix of needs.\""]
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     Text("Is this event very similar to something that happened before? Go to List, view the event, and select Duplicate.")
+                        .font(.callout)
                 }
                 Section(header: Text("What happened? Who did what, or to whom?")) {
                     Text("Describe the ") + Text("behavior").fontWeight(.semibold) + Text(":")
@@ -62,7 +63,7 @@ struct DataEntryView: View {
                     Spacer()
                 }
             }
-                .navigationTitle("Let's enter some data")
+                .navigationTitle("Let's enter ABC data")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Clear") {
@@ -77,6 +78,9 @@ struct DataEntryView: View {
     func submitData() {
         let event = Event(when: when, antecedent: antecedent, behavior: behavior, consequence: consequence, functionSelection: functionSelection)
         aBCDataCopy.events.append(event)
+        aBCDataCopy.events.sort {
+            $0.when < $1.when
+        }
         clearFields()
     }
     
@@ -92,6 +96,6 @@ struct DataEntryView: View {
 struct DataEntryView_Previews: PreviewProvider {
     static var previews: some View {
         DataEntryView(aBCDataCopy: BehaviorData())
-            .previewInterfaceOrientation(.portraitUpsideDown)
+            .previewInterfaceOrientation(.portrait)
     }
 }

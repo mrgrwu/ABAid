@@ -19,6 +19,9 @@
 		7E91B9E0276BD98100FBA7BE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91B9DF276BD98100FBA7BE /* HomeView.swift */; };
 		7EAA3DEF276ACF6100A60419 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA3DEE276ACF6100A60419 /* Event.swift */; };
 		7EAA3DF3276AD37700A60419 /* BehaviorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA3DF2276AD37700A60419 /* BehaviorData.swift */; };
+		7EAC04DE283571C1007D8377 /* TrackingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC04DD283571C1007D8377 /* TrackingData.swift */; };
+		7EAC04E028357258007D8377 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC04DF28357258007D8377 /* Action.swift */; };
+		7EAC04E22835B7D6007D8377 /* ActionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC04E12835B7D6007D8377 /* ActionDetailView.swift */; };
 		7EBF2CBF2832DE7500CBE275 /* WaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF2CBE2832DE7500CBE275 /* WaitView.swift */; };
 		7EBF2CC12832DED100CBE275 /* ValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF2CC02832DED100CBE275 /* ValidateView.swift */; };
 		7EBF2CC32832DEEB00CBE275 /* RegulateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBF2CC22832DEEB00CBE275 /* RegulateView.swift */; };
@@ -41,6 +44,9 @@
 		7E91B9DF276BD98100FBA7BE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7EAA3DEE276ACF6100A60419 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7EAA3DF2276AD37700A60419 /* BehaviorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorData.swift; sourceTree = "<group>"; };
+		7EAC04DD283571C1007D8377 /* TrackingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingData.swift; sourceTree = "<group>"; };
+		7EAC04DF28357258007D8377 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		7EAC04E12835B7D6007D8377 /* ActionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDetailView.swift; sourceTree = "<group>"; };
 		7EBF2CBE2832DE7500CBE275 /* WaitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitView.swift; sourceTree = "<group>"; };
 		7EBF2CC02832DED100CBE275 /* ValidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateView.swift; sourceTree = "<group>"; };
 		7EBF2CC22832DEEB00CBE275 /* RegulateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegulateView.swift; sourceTree = "<group>"; };
@@ -113,8 +119,9 @@
 				7E91B9DF276BD98100FBA7BE /* HomeView.swift */,
 				7E3BB3DE2769757600DE9C27 /* DataEntryView.swift */,
 				7E3BB3E02769760E00DE9C27 /* ListView.swift */,
-				7E3BB3E22769764700DE9C27 /* SummaryView.swift */,
 				7E3BB3E42769765C00DE9C27 /* DetailView.swift */,
+				7E3BB3E22769764700DE9C27 /* SummaryView.swift */,
+				7EAC04E12835B7D6007D8377 /* ActionDetailView.swift */,
 				7E3BB3E627697A6000DE9C27 /* FirstAidView.swift */,
 				7EBF2CBE2832DE7500CBE275 /* WaitView.swift */,
 				7EBF2CC02832DED100CBE275 /* ValidateView.swift */,
@@ -129,8 +136,10 @@
 		7EAA3DED276ACECF00A60419 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				7EAA3DEE276ACF6100A60419 /* Event.swift */,
 				7EAA3DF2276AD37700A60419 /* BehaviorData.swift */,
+				7EAA3DEE276ACF6100A60419 /* Event.swift */,
+				7EAC04DD283571C1007D8377 /* TrackingData.swift */,
+				7EAC04DF28357258007D8377 /* Action.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -206,11 +215,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EAA3DEF276ACF6100A60419 /* Event.swift in Sources */,
+				7EAC04E028357258007D8377 /* Action.swift in Sources */,
 				7EBF2CC92832DF2A00CBE275 /* MotivateView.swift in Sources */,
 				7E3BB3E12769760E00DE9C27 /* ListView.swift in Sources */,
 				7E3BB3E52769765C00DE9C27 /* DetailView.swift in Sources */,
 				7E91B9E0276BD98100FBA7BE /* HomeView.swift in Sources */,
 				7E3BB3D327696DF000DE9C27 /* ContentView.swift in Sources */,
+				7EAC04DE283571C1007D8377 /* TrackingData.swift in Sources */,
+				7EAC04E22835B7D6007D8377 /* ActionDetailView.swift in Sources */,
 				7E3BB3E32769764700DE9C27 /* SummaryView.swift in Sources */,
 				7EBF2CC12832DED100CBE275 /* ValidateView.swift in Sources */,
 				7EAA3DF3276AD37700A60419 /* BehaviorData.swift in Sources */,

@@ -23,7 +23,6 @@ struct ListView: View {
                             Text("\(self.aBCDataCopy.events[index].behavior)")
                         }
                         Spacer()
-                        
                         Button("\(Image(systemName: "chevron.forward.circle"))") {
                             self.eventIndex = index
                             self.showDetailView = true
