@@ -93,7 +93,7 @@ struct SummaryView: View {
                         Spacer()
                     }
                     HStack {
-                        TextField("Action", text: $actionDescription, prompt: Text("Enter action"))
+                        TextField("Description", text: $actionDescription, prompt: Text("Description (ex. Calvin throws toy)"))
                         Spacer()
                         Button("Submit") {
                             if actionDescription != "" {

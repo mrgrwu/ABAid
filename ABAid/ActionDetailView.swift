@@ -18,7 +18,7 @@ struct ActionDetailView: View {
             VStack(spacing: 30) {
                 Text("\(trackingDataCopy.actions[eventIndex].description)")
                     .fontWeight(.semibold)
-                Text("\(trackingDataCopy.actions[eventIndex].count) count")
+                Text("Count: \(trackingDataCopy.actions[eventIndex].count)")
                     .fontWeight(.semibold)
                 HStack {
                     Button("\(Image(systemName: "minus.rectangle"))") {
