@@ -67,14 +67,14 @@ struct HomeView: View {
         
         for eventIndex in 0 ..< aBCDataCopy.events.count {
             exportString.append("\"" + aBCDataCopy.events[eventIndex].when.formatted(date: .abbreviated, time: .shortened) + "\",")
-            exportString.append(aBCDataCopy.events[eventIndex].antecedent + ",")
-            exportString.append(aBCDataCopy.events[eventIndex].behavior + ",")
-            exportString.append(aBCDataCopy.events[eventIndex].consequence + ",")
+            exportString.append("\"" + aBCDataCopy.events[eventIndex].antecedent + "\",")
+            exportString.append("\"" + aBCDataCopy.events[eventIndex].behavior + "\",")
+            exportString.append("\"" + aBCDataCopy.events[eventIndex].consequence + "\",")
             exportString.append(functions[aBCDataCopy.events[eventIndex].functionSelection] + "\n")
         }
         exportString.append("Action,Count\n")
         for actionIndex in 0 ..< trackingDataCopy.actions.count {
-            exportString.append(trackingDataCopy.actions[actionIndex].description + ",")
+            exportString.append("\"" + trackingDataCopy.actions[actionIndex].description + "\",")
             exportString.append(String(trackingDataCopy.actions[actionIndex].count) + "\n")
         }
         
